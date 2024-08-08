@@ -4,8 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
+    <style>
+        .gallary_heading{
+            text-align: center ;
+            font-size: xx-large;
+            background-color: antiquewhite;
+        }
+        .gallary_img{
+            width:500px;
+            height:300px;
+            object-fit: cover;
+            display: block;
+            margin:20px auto;
+
+        }
+        .butn_container{
+            position: relative;
+            width: fit-content;
+            display: block;
+            margin: 10px auto;
+       }
+
+        .butn{
+            height: 40px;
+             background-color: white;
+            margin: 0 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            position: absolute;
+            top: 120px;
+        }
+       .butn-left{
+            left:-30px;
+        }
+        .butn-right{
+            right:-30px; 
+        }
+      
+    </style>
 </head>
 <body> 
      <h1 class="gallary_heading">Gallary Slidar</h1>
@@ -14,10 +50,39 @@
             <img src="./images/left.jpg" class="butn butn-left" onclick="prev()"/>
             <img src="./images/right.jpg" class="butn butn-right" onclick="next()"/>
         </div>
-
-    </div>
+        <script>
+            const imageArray=[
+                "./images/0.jpg",
+                "./images/1.jpg",
+                "./images/2.jpg",
+                "./images/3.jpg",
+                "./images/4.jpg"
+            ];
+            let imageIndex = 0;
+            const imageElement = document.getElementById("img");
+            function prev(){
+                if(imageIndex ==0){
+                    imageIndex = imageArray.length-1;
+                }
+                else{
+                    imageIndex --;
+                }
+                imageElement.src=imageArray[imageIndex];
+            }
+    
+            function next(){
+                if(imageIndex == imageArray.length-1){
+                    imageIndex=0;
+                }
+                else{
+                    imageIndex++;
+                }
+                
+                imageElement.src=imageArray[imageIndex];
+            }
+            setInterval(next,1000.40);
+    
+        </script>
 </body>
 </html>
     
-</body>
-</html>
